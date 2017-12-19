@@ -1,0 +1,16 @@
+
+
+
+.ui-skills-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.ui-skills-chart {
+    margin: 5px;
+    width: 100px;
+    overflow: hidden;
+}
+
+

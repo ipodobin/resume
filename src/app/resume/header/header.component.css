@@ -1,0 +1,41 @@
+
+.ui-header {
+    background-color: #F2F9F8;
+    padding: 20px;
+}
+
+.ui-name {
+    font-size: 44px;
+}
+
+.ui-menu {
+    list-style-type: none;
+    margin: 10px 0 0;
+    padding: 0;
+    background-color: #003333;
+    display: flex;
+    justify-content: center;
+}
+
+.ui-menu-item {
+    display: inline-block;
+}
+
+.ui-menu-item a {
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #FFF8F0;
+    cursor: pointer;
+}
+
+.ui-menu-item:not(:last-of-type) a:before {
+    border-right: 1px solid #FFF8F0;
+    box-sizing: border-box;
+}
+
+.ui-menu-item:hover {
+    background-color: #1E1E24;
+}
+

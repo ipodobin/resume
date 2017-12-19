@@ -1,1 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Cinzel', sans-serif;
+}
+
+.ui-section {
+    padding: 20px 20px 0 20px;
+}
+
+.ui-subtitle {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.ui-subtitle-text {
+    background-color: #003333;
+    color: #FFF8F0;
+    display: inline-block;
+    padding: 10px 15px;
+    flex: 0 1 auto;
+    width: 150px;
+    display: block;
+    text-align: center;
+}
+
+
+.ui-subtitle-line {
+    flex: 1;
+    height: 4px;
+    background-color: #003333;
+    margin: 38px 0 0 0;
+}
+
+.ui-timeline-description {
+    grid-column: 5;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.ui-timeline-description ol {
+    margin: 0;
+}
+
+.ui-timeline-period>div {
+    display: block;
+    text-align: center;
+}
+
+.ui-timeline-period.now {
+    margin-top: .5em;
+}
+
+.ui-timeline-name {
+    font-weight: bold;
+}
+
+.ui-timeline-position {
+    font-weight: bold;
+    color: #9B2922;
+}
+
+.ui-timeline-text {
+    margin: 1em;
+}
+
+.ui-timeline-line {
+    position: relative;
+    width: .4em;
+    height: 100%;
+    background-color: #9B2922;
+    margin: 0 auto;
+}
+
+.ui-timeline-circle {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 0.4em solid #9B2922;
+    background-color: #FFFFFF;
+    left: -.67em;
+    top: 2.4em;
+}
+
+

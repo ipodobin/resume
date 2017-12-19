@@ -1,0 +1,24 @@
+<div class="ui-section ui-about">
+  <div class="ui-subtitle">
+    <div class="ui-subtitle-text">{{ 'about' | translate }}</div>
+    <div class="ui-subtitle-line"></div>
+  </div>
+  <div class="ui-about-content">
+    <!-- <div class="ui-about-description"> -->
+    <img src="assets/images/profile2.jpg" alt="profile" class="ui-about-image-profile" title="Tymczasowo w oczekiwaniu na normalne zdjęcie ;)">
+    <!-- <div class="ui-about-text" [innerHtml]="user.about"></div> -->
+    <!-- </div> -->
+    <div class="ui-about-contact">
+      <div>{{ 'birth' | translate }}</div>
+      <div>{{ user.birthDate | date:'dd MMMM yyyy' }}</div>
+      <div>{{ 'webpage' | translate }}</div>
+      <div>
+        <a target="_blank" [attr.href]="user.webpage ? user.webpage : null">{{ user.webpage }}</a>
+      </div>
+      <div>{{ 'phone' | translate }}</div>
+      <div>{{ user.phone }}</div>
+      <div>{{ 'email' | translate }}</div>
+      <div>{{ user.email }}</div>
+    </div>
+  </div>
+</div>

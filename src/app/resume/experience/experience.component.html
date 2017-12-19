@@ -1,0 +1,33 @@
+<div class="ui-section  ui-experience">
+  <div class="ui-subtitle">
+    <div class="ui-subtitle-text">{{ 'experience' | translate}}</div>
+    <div class="ui-subtitle-line"></div>
+  </div>
+  <div class="ui-experience-content">
+    <ng-container *ngFor="let exp of user.experiences; let i = index">
+      <div class="ui-timeline-period">
+        <div>{{ exp.from | date: 'yyyy' }}</div>
+        <div>{{ exp.from | date: 'MMMM' }}</div>
+      </div>
+      <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
+      <div class="ui-timeline-period" *ngIf="exp.to != null">
+        <div>{{ exp.to | date: 'yyyy' }}</div>
+        <div>{{ exp.to | date: 'MMMM' }}</div>
+      </div>
+      <div class="ui-timeline-period now" *ngIf="exp.to == null">
+        <div>{{ 'now' | translate }}</div>
+      </div>
+      <div>
+        <div class="ui-timeline-line">
+          <div class="ui-timeline-circle"></div>
+        </div>
+      </div>
+      <div class="ui-timeline-description">
+        <div class="ui-timeline-name">{{ exp.name }}</div>
+        <div class="ui-timeline-position">{{ exp.position }}</div>
+        <hr/>
+        <div class="ui-timeline-text" [innerHTML]="exp.description"></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

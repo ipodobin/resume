@@ -1,0 +1,30 @@
+
+
+.ui-hobby-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.ui-hobby-chart {
+    margin: 5px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.ui-hobby-item {
+    width: 120px;
+    overflow: hidden;
+}
+
+.ui-hobby-icon {
+    width: 120px;
+}
+
+.ui-hobby-text {
+    text-align: center;
+    display: block;
+    display: none;
+}
+
+

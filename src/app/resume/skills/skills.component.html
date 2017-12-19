@@ -1,0 +1,11 @@
+<div class="ui-section ui-skills">
+  <div class="ui-subtitle">
+    <div class="ui-subtitle-text">{{ 'skills' | translate}}</div>
+    <div class="ui-subtitle-line"></div>
+  </div>
+  <div class="ui-skills-content">
+    <div class="ui-skills-chart" *ngFor="let skill of user.skills">
+      <app-skill-level [skill]="skill"></app-skill-level>
+    </div>
+  </div>
+</div>

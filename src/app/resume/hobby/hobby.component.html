@@ -1,0 +1,14 @@
+<div class="ui-section ui-hobby">
+  <div class="ui-subtitle">
+    <div class="ui-subtitle-text">{{ 'hobby' | translate}}</div>
+    <div class="ui-subtitle-line"></div>
+  </div>
+  <div class="ui-hobby-content">
+    <div class="ui-hobby-item" *ngFor="let hobby of user.hobbies">
+      <a target="_blank" [attr.href]="hobby.webpage ? hobby.webpage : null">
+        <img [src]="'assets/images/'+hobby.icon" [alt]="hobby.name" [title]="hobby.name" class="ui-hobby-icon">
+        <div class="ui-hobby-text">{{ hobby.name }}</div>
+      </a>
+    </div>
+  </div>
+</div>

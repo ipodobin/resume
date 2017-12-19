@@ -1,0 +1,10 @@
+<div class="ui-skill-level"
+  [ngClass]="getSkillLevelClass()"
+  [title]="skill.description">
+  <span>{{ skill.level }}%</span>
+  <div class="ui-skill-level-left-half-clipper">
+    <div class="ui-skill-level-first50-bar" *ngIf="skill.level>50"></div>
+    <div class="ui-skill-level-value-bar" *ngIf="skill.level>0" [style.transform]="getTransformValue()"></div>
+  </div>
+</div>
+<div class="ui-skill-title">{{ skill.name }}</div>
