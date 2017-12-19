@@ -1,6 +1,6 @@
 <div class="ui-header">
-  <div class="ui-name">{{ user.name }}</div>
-  <div class="ui-title">{{ user.title }}</div>
+  <div class="ui-name">{{ (user | async).name }}</div>
+  <div class="ui-title">{{ (user | async).title }}</div>
   <ul class="ui-menu">
     <li class="ui-menu-item">
       <a (click)="onClick('about')">O mnie</a>

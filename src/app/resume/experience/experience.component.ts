@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Experience } from '../shared/experience.model';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-experience',
@@ -11,12 +12,12 @@ import { User } from '../shared/user.model';
 })
 export class ExperienceComponent implements OnInit {
 
-  user: User;
+  user: Observable<User>;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+  this.user = this.userService.getUserObservable();
   }
 
 }

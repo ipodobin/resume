@@ -5,14 +5,69 @@ import { Skill } from './skill.model';
 import { Education } from './education.model';
 import { Experience } from './experience.model';
 import { Hobby } from './hobby.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
     private user: User;
     userChanged = new Subject<User>();
+    private userObservable: Observable<User>;
 
 
-    constructor() {
+    constructor(private http: HttpClient) {
+        // this.initUser();
+        // this.storeUser(this.user).subscribe(
+        //     (response) => console.log(response),
+        //     (error) => console.log(error));
+
+        this.userObservable = this.loadUser();
+
+        // this.loadUser().subscribe(
+        //     (user: User) => {
+        //         // console.log(user);
+        //         this.user = user;
+        //     },
+        //     (error) => {
+        //         console.log(error);
+        //     });
+    }
+
+    storeUser(user: User) {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+        return this.http.put(
+            'https://resume-ipodobin.firebaseio.com/data.json',
+            user,
+            { headers: headers }
+        );
+    }
+
+    loadUser(): Observable<User> {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+        // return this.http.get(
+        //     'https://resume-ipodobin.firebaseio.com/data.json',
+        //     { headers: headers }
+        // );
+
+        let apiURL = 'https://resume-ipodobin.firebaseio.com/data.json';
+        return this.http.get<User>(apiURL);
+    }
+
+
+    getUser() {
+        return this.user;
+    }
+
+    getUserObservable() {
+        return this.userObservable;
+    }
+
+    initUser() {
         let name: string = 'Igor Podobiński';
         let title: string = 'Java/Javascript Developer';
         let birthDate: Date = new Date('1985-08-14');
@@ -182,10 +237,5 @@ export class UserService {
             experiences,
             hobbies
         );
-    }
-
-
-    getUser() {
-        return this.user;
     }
 }

@@ -13,10 +13,20 @@ import { UserService } from './shared/user.service';
 })
 export class ResumeComponent implements OnInit {
 
+  isLoading: boolean = true;
+
   constructor(
+    private userService: UserService,
     private translate: TranslateService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.userService.getUserObservable().subscribe(
+      (user) => {
+        setTimeout(() => this.isLoading = false, 1000);
+        // this.isLoading = false;
+      }
+    );
+  }
 
   ngOnInit() {
     // // subscribe to route/fragment

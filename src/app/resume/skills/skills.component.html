@@ -4,7 +4,7 @@
     <div class="ui-subtitle-line"></div>
   </div>
   <div class="ui-skills-content">
-    <div class="ui-skills-chart" *ngFor="let skill of user.skills">
+    <div class="ui-skills-chart" *ngFor="let skill of (user | async).skills">
       <app-skill-level [skill]="skill"></app-skill-level>
     </div>
   </div>

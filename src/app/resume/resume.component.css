@@ -6,3 +6,28 @@
     margin: 0px auto;
 }
 
+.ui-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #191f26;
+    background-image: url(/assets/images/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1000;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.ui-container.hidden {
+    display: none;
+}
+
+.ui-loading.hidden {
+    z-index: -1;
+    opacity: 0;
+}
+
