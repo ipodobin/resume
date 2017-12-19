@@ -11,30 +11,8 @@ import { AboutComponent } from "./resume/about/about.component";
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/resume',
-        pathMatch: 'full'
-    }, {
-        path: 'resume',
+        pathMatch: 'full',
         component: ResumeComponent,
-        // children: [
-        //     {
-        //         path: '',
-        //         component: AboutComponent,
-        //         pathMatch: 'full'
-        //     }, {
-        //         path: 'skills',
-        //         component: SkillsComponent
-        //     }, {
-        //         path: 'experience',
-        //         component: ExperienceComponent
-        //     }, {
-        //         path: 'education',
-        //         component: EducationComponent
-        //     }, {
-        //         path: 'contact',
-        //         component: ContactComponent
-        //     }
-        // ]
     }
 ];
 
