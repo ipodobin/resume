@@ -26,10 +26,10 @@ export class ResumeComponent implements OnInit {
     //   } catch (e) { }
     // });
 
-    // this language will be used as a fallback when a translation isn't found in the current language
-    this.translate.setDefaultLang('en');
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    this.translate.use('pl');
+    // // this language will be used as a fallback when a translation isn't found in the current language
+    // this.translate.setDefaultLang('en');
+    // // the lang to use, if the lang isn't available, it will use the current loader to get them
+    // this.translate.use('pl');
   }
 
   ngAfterViewInit(): void {
