@@ -1,0 +1,14 @@
+{
+    "hello": "cześć",
+    "about": "O mnie",
+    "skills": "Umiejętności",
+    "experience": "Doświadczenie",
+    "education": "Wykształcenie",
+    "contact": "Kontakt",
+    "now": "teraz",
+    "hobby": "Zainteresowania",
+    "birth": "Data urodzenia",
+    "webpage": "Strona internetowa",
+    "phone": "Numer telefonu",
+    "email": "E-mail"
+}
