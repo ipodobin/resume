@@ -25,4 +25,11 @@ export class SkillLevelComponent implements OnInit {
     };
   }
 
+  getSkillLevelPartClass(num: number, max: number = 5) {
+    let fill = 100 * num / max <= this.skill.level;
+    return {
+      'ui-skill-level-part-fill': fill
+    };
+  }
+
 }

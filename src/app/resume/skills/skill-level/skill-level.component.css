@@ -8,6 +8,11 @@
 }
 
 .ui-skill-level {
+    display: flex;
+    justify-content: space-around;
+}
+
+._ui-skill-level {
     font-size: 20px;
     position: relative; /* so that children can be absolutely positioned */
     padding: 0;
@@ -16,9 +21,10 @@
     background-color: #F5E9E8; 
     border-radius: 50%;
     line-height: 5em;
- }
+    display: flex;
+}
  
-.ui-skill-level:after{
+._ui-skill-level:after{
      border: none;
      position: absolute;
      top: 0.35em;
@@ -30,9 +36,9 @@
      height: 4.3em;
      background-color: white;
      content: " ";
- }
- /* Text inside the control */
- .ui-skill-level span {
+}
+/* Text inside the control */
+._ui-skill-level span {
      position: absolute;
      line-height: 5em;
      width: 5em;
@@ -41,20 +47,20 @@
      /* color: #53777A; */
      z-index: 2;
      display: none;
- }
- .ui-skill-level-left-half-clipper { 
+}
+._ui-skill-level-left-half-clipper { 
     /* a round circle */
     border-radius: 50%;
     width: 5em;
     height: 5em;
     position: absolute; /* needed for clipping */
     clip: rect(0, 5em, 5em, 2.5em); /* clips the whole left half*/ 
- }
- /* when p>50, don't clip left half*/
- .ui-skill-level.over50 .ui-skill-level-left-half-clipper {
+}
+/* when p>50, don't clip left half*/
+._ui-skill-level.over50 .ui-skill-level-left-half-clipper {
     clip: rect(auto,auto,auto,auto);
- }
- .ui-skill-level-value-bar {
+}
+._ui-skill-level-value-bar {
     /*This is an overlayed square, that is made round with the border radius,
     then it is cut to display only the left half, then rotated clockwise
     to escape the outer clipping path.*/ 
@@ -67,9 +73,9 @@
     /*background-color: #4D642D;*/ /* for debug */
     box-sizing: border-box;
    
- }
- /* Progress bar filling the whole right half for values above 50% */
- .ui-skill-level.over50 .ui-skill-level-first50-bar {
+}
+/* Progress bar filling the whole right half for values above 50% */
+._ui-skill-level.over50 .ui-skill-level-first50-bar {
     /*Progress bar for the first 50%, filling the whole right half*/
     position: absolute; /*needed for clipping*/
     clip: rect(0, 5em, 5em, 2.5em);
@@ -77,4 +83,19 @@
     border-radius: 50%;
     width: 5em;
     height: 5em;
- }
+}
+
+.ui-skill-level-part {
+    background-color: #F5E9E8;
+    width: 10px;
+    height: 10px;
+    /* margin: 0 2px; */
+    display: inline-block;
+}
+
+.ui-skill-level-part-fill {
+    background-color: #9B2922;
+}
+
+
+

@@ -1,11 +1,14 @@
 
 .ui-header {
     background-color: #F2F9F8;
-    padding: 20px;
 }
 
 .ui-name {
-    font-size: 44px;
+    font-size: 50px;
+}
+
+.ui-title {
+    font-size: 22px;
 }
 
 .ui-menu {
@@ -15,6 +18,7 @@
     background-color: #003333;
     display: flex;
     justify-content: center;
+    display: none;
 }
 
 .ui-menu-item {
