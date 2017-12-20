@@ -16,23 +16,24 @@ export class ResumeComponent implements OnInit {
 
   isLoading: boolean = true;
   user: User;
+  loadingClass = '';
 
   constructor(
     private userService: UserService,
-    private translate: TranslateService,
     private route: ActivatedRoute
   ) {
     // wczytanie usera
     this.userService.getUserObservable().subscribe(
       (user) => {
         this.user = user;
-        setTimeout(() => this.isLoading = false, 1000);
+        setTimeout(() => this.isLoading = false, 500);
         // this.isLoading = false;
       }
     );
   }
 
   ngOnInit() {
+    this.loadingClass = 'ui-loading-' + Math.round(Math.random() * 6 + 1);
     // // subscribe to route/fragment
     // this.route.fragment.subscribe(fragment => {
     //   try {
@@ -47,6 +48,14 @@ export class ResumeComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
+  }
+
+  getClasses() {
+    let classes = {};
+    // classes['hidden']=this.isLoading == false;
+    classes['ui-animation-loading-fade-out'] = this.isLoading == false;
+    classes[this.loadingClass] = true;
+    return classes;
   }
 
 }

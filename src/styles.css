@@ -89,4 +89,13 @@ body {
     top: 2.4em;
 }
 
+a:link, a:visited { 
+    color: #003333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:link:active, a:visited:active, a:hover { 
+    color: #9B2922;
+}
 
