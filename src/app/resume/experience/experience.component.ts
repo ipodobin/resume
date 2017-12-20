@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Experience } from '../shared/experience.model';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
@@ -12,12 +12,14 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ExperienceComponent implements OnInit {
 
-  user: Observable<User>;
+  // user: Observable<User>;
+  @Input()
+  user: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-  this.user = this.userService.getUserObservable();
+    // this.user = this.userService.getUserObservable();
   }
 
 }

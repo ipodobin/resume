@@ -1,9 +1,26 @@
 
+.ui-fullpage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-scrollable {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: auto 800px auto;
+}
+
 .ui-container {
     box-sizing: border-box;
     color: #000;
     width: 800px;
     margin: 0px auto;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.5s;
 }
 
 .ui-loading {
@@ -18,16 +35,32 @@
     background-position: center;
     z-index: 1000;
     opacity: 1;
-    transition-property: opacity;
-    transition-duration: 0.5s;
+    /* transition-property: opacity;
+    transition-duration: 0.5s; */
 }
 
-.ui-container.hidden {
-    display: none;
-}
-
+.ui-container.hidden,
 .ui-loading.hidden {
     z-index: -1;
     opacity: 0;
+}
+
+@keyframes animation-loading-fade-out {
+    0% {
+        opacity: 1;
+        z-index: 1000;
+    }
+    99% {
+        z-index: 1000;
+    }
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+.ui-animation-loading-fade-out {
+    animation-name: animation-loading-fade-out;
+    animation-duration: 1s;
 }
 

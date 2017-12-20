@@ -4,7 +4,7 @@
       <div class="ui-subtitle-line"></div>
     </div>
     <div class="ui-education-content">
-      <ng-container *ngFor="let edu of (user | async).educations; let i = index">
+      <ng-container *ngFor="let edu of user.educations; let i = index">
         <div class="ui-timeline-period">
           <div>{{ edu.from | date: 'yyyy' }}</div>
           <div>{{ edu.from | date: 'MMMM' }}</div>

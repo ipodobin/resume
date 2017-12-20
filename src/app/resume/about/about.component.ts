@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
 import { Observable } from 'rxjs/Observable';
@@ -11,18 +11,19 @@ import { Observable } from 'rxjs/Observable';
 export class AboutComponent implements OnInit {
 
   // user: Observable<User>;
+  @Input()
   user: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     // this.user = this.userService.getUserObservable();
-    this.userService.getUserObservable().subscribe(
-      (user) => {
-        debugger;
-        this.user = user;
-      }
-    );
+    // this.userService.getUserObservable().subscribe(
+    //   (user) => {
+    //     debugger;
+    //     this.user = user;
+    //   }
+    // );
   }
 
 }

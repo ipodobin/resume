@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './shared/user.service';
+import { User } from './shared/user.model';
 
 @Component({
   selector: 'app-resume',
@@ -14,14 +15,17 @@ import { UserService } from './shared/user.service';
 export class ResumeComponent implements OnInit {
 
   isLoading: boolean = true;
+  user: User;
 
   constructor(
     private userService: UserService,
     private translate: TranslateService,
     private route: ActivatedRoute
   ) {
+    // wczytanie usera
     this.userService.getUserObservable().subscribe(
       (user) => {
+        this.user = user;
         setTimeout(() => this.isLoading = false, 1000);
         // this.isLoading = false;
       }

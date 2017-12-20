@@ -1,9 +1,13 @@
-<div class="ui-loading" [ngClass]="{'hidden': isLoading==false}"></div>
-<div class="ui-container" [ngClass]="{'hidden': isLoading==true}">
-  <app-header id="header"></app-header>
-  <app-about id="about"></app-about>
-  <app-skills id="skills"></app-skills>
-  <app-experience id="experience"></app-experience>
-  <app-education id="education"></app-education>
-  <app-hobby id="hobby"></app-hobby>
+<div class="ui-loading ui-fullpage" [ngClass]="{'hidden': isLoading==false, 'ui-animation-loading-fade-out': isLoading==false}"></div>
+<div class="ui-scrollable ui-fullpage">
+  <div class="ui-side ui-side-left"></div>
+  <div class="ui-container" [ngClass]="{'hidden': isLoading==true}" *ngIf="isLoading==false">
+    <app-header id="header" [user]="user"></app-header>
+    <app-about id="about" [user]="user"></app-about>
+    <app-skills id="skills" [user]="user"></app-skills>
+    <app-experience id="experience" [user]="user"></app-experience>
+    <app-education id="education" [user]="user"></app-education>
+    <app-hobby id="hobby" [user]="user"></app-hobby>
+  </div>
+  <div class="ui-side ui-side-right"></div>
 </div>
