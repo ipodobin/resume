@@ -9,9 +9,14 @@ import { Skill } from '../../shared/skill.model';
 export class SkillLevelComponent implements OnInit {
 
   @Input() skill: Skill;
+  @Input() num: number;
+  range: number[] = [];
   constructor() { }
 
   ngOnInit() {
+    for (let i = 1; i <= this.num; i++) {
+      this.range.push(i);
+    }
   }
 
   getTransformValue() {
@@ -26,7 +31,7 @@ export class SkillLevelComponent implements OnInit {
   }
 
   getSkillLevelPartClass(num: number, max: number = 5) {
-    let fill = 100 * num / max <= this.skill.level;
+    let fill = 100 * (num - 1) / max <= this.skill.level;
     return {
       'ui-skill-level-part-fill': fill
     };

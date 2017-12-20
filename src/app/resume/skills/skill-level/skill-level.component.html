@@ -6,15 +6,8 @@
     <div class="ui-skill-level-first50-bar" *ngIf="skill.level>50"></div>
     <div class="ui-skill-level-value-bar" *ngIf="skill.level>0" [style.transform]="getTransformValue()"></div>
   </div> -->
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(1, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(2, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(3, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(4, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(5, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(6, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(7, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(8, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(9, 10)"></div>
-  <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(10, 10)"></div>
+  <div *ngFor="let i of range">
+      <div class="ui-skill-level-part" [ngClass]="getSkillLevelPartClass(i, num)"></div>
+  </div>
 </div>
 <div class="ui-skill-title">{{ skill.name }}</div>
