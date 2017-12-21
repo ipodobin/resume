@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Skill } from '../../shared/skill.model';
 
 @Component({
   selector: 'app-skill-level',
   templateUrl: './skill-level.component.html',
-  styleUrls: ['./skill-level.component.css']
+  styleUrls: ['./skill-level.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SkillLevelComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './shared/user.service';
@@ -10,7 +10,8 @@ import { User } from './shared/user.model';
   styleUrls: ['./resume.component.css'],
   providers: [
     UserService
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class ResumeComponent implements OnInit {
 

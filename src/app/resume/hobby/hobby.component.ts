@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Hobby } from '../shared/hobby.model';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-hobby',
   templateUrl: './hobby.component.html',
-  styleUrls: ['./hobby.component.css']
+  styleUrls: ['./hobby.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HobbyComponent implements OnInit {
 

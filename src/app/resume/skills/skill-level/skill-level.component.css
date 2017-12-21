@@ -12,6 +12,18 @@
     justify-content: space-around;
 }
 
+.ui-skill-level-part {
+    background-color: #F5E9E8;
+    width: 10px;
+    height: 10px;
+    /* margin: 0 2px; */
+    display: inline-block;
+}
+
+.ui-skill-level-part-fill {
+    background-color: #9B2922;
+}
+
 ._ui-skill-level {
     font-size: 20px;
     position: relative; /* so that children can be absolutely positioned */
@@ -83,18 +95,6 @@
     border-radius: 50%;
     width: 5em;
     height: 5em;
-}
-
-.ui-skill-level-part {
-    background-color: #F5E9E8;
-    width: 10px;
-    height: 10px;
-    /* margin: 0 2px; */
-    display: inline-block;
-}
-
-.ui-skill-level-part-fill {
-    background-color: #9B2922;
 }
 
 

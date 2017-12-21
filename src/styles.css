@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 html, body {
     height: 100%;
     overflow: hidden;
@@ -22,11 +22,9 @@ body {
 .ui-subtitle-text {
     background-color: #003333;
     color: #FFF8F0;
-    display: inline-block;
     padding: 10px 15px;
     flex: 0 1 auto;
     width: 150px;
-    display: block;
     text-align: center;
 }
 

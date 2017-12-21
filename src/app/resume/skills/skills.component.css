@@ -11,6 +11,12 @@
     margin: 5px;
     width: 100px;
     overflow: hidden;
+    /* transition: all .5s ease-in-out; */
+}
+
+.ui-skills-chart:hover {
+    perspective: 1000;
+    transform: scale(1.2);
 }
 
 
