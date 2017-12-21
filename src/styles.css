@@ -99,3 +99,18 @@ a:link:active, a:visited:active, a:hover {
     color: #9B2922;
 }
 
+.ui-timeline-content {
+    display: grid;
+    grid-template-columns: 60px 5px 60px 50px auto;
+    grid-auto-rows: auto;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width:800px) {
+    .ui-timeline-content {
+        overflow: hidden;
+    }
+
+}
+

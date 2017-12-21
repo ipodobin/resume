@@ -17,6 +17,7 @@ export class ResumeComponent implements OnInit {
   isLoading: boolean = true;
   user: User;
   loadingClass = '';
+  loadingScreensCount: number = 3;
 
   constructor(
     private userService: UserService,
@@ -33,7 +34,7 @@ export class ResumeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadingClass = 'ui-loading-' + Math.round(Math.random() * 6 + 1);
+    this.loadingClass = 'ui-loading-' + Math.round(Math.random() * this.loadingScreensCount + 1);
     // // subscribe to route/fragment
     // this.route.fragment.subscribe(fragment => {
     //   try {

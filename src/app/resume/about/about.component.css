@@ -40,4 +40,21 @@
     /* flex: 0 1 auto; */
     max-width: 150px;
     max-height: 200px;
+    margin: 0 auto;
 }
+
+@media only screen and (max-width:800px) {
+
+    .ui-about-content {
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+    }
+    
+    .ui-about-contact {
+        margin-left: 0px;
+        margin-right: 0px;
+        overflow: hidden;
+    }
+
+}
+

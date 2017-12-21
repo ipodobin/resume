@@ -11,6 +11,18 @@
     font-size: 22px;
 }
 
+@media only screen and (max-width:800px) {
+
+    .ui-name {
+        font-size: 40px;
+    }
+    
+    .ui-title {
+        font-size: 18px;
+    }
+
+}
+
 .ui-menu {
     list-style-type: none;
     margin: 10px 0 0;

@@ -9,8 +9,8 @@
 
 .ui-scrollable {
     overflow: auto;
-    display: grid;
-    grid-template-columns: auto 800px auto;
+    /* display: grid;
+    grid-template-columns: auto 800px auto; */
 }
 
 .ui-container {
@@ -21,6 +21,14 @@
     opacity: 1;
     transition-property: opacity;
     transition-duration: 0.5s;
+}
+
+@media only screen and (max-width:800px) {
+
+    .ui-container {
+        width: 100%;
+    }
+
 }
 
 .ui-loading {
@@ -46,26 +54,31 @@
 }
 
 .ui-loading-3 {
-    background-color: #192632;
-    background-image: url(/assets/images/loading3.gif);
-}
-
-.ui-loading-4 {
-    background-color: #f1f1f1;
-    background-image: url(/assets/images/loading4.gif);
-}
-
-.ui-loading-5 {
     background-color: #2a2826;
     background-image: url(/assets/images/loading5.gif);
 }
 
-.ui-loading-6 {
+._ui-loading-3 {
+    background-color: #192632;
+    background-image: url(/assets/images/loading3.gif);
+}
+
+._ui-loading-4 {
+    background-color: #f1f1f1;
+    background-image: url(/assets/images/loading4.gif);
+}
+
+._ui-loading-5 {
+    background-color: #2a2826;
+    background-image: url(/assets/images/loading5.gif);
+}
+
+._ui-loading-6 {
     background-color: #24457c;
     background-image: url(/assets/images/loading6.gif);
 }
 
-.ui-loading-7 {
+._ui-loading-7 {
     background-color: #2D2D2D;
     background-image: url(/assets/images/loading7.gif);
 }
