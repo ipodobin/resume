@@ -4,11 +4,11 @@
 }
 
 .ui-name {
-    font-size: 50px;
+    font-size: 3em;
 }
 
 .ui-title {
-    font-size: 22px;
+    font-size: 1.5em;
 }
 
 @media only screen and (max-width:800px) {

@@ -1,22 +1,20 @@
 
-
-
 .ui-skills-content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ui-skills-chart {
-    margin: 5px;
-    width: 100px;
-    overflow: hidden;
-    /* transition: all .5s ease-in-out; */
+  margin: .2em;
+  width: 5em;
+  overflow: hidden;
+  /* transition: all .5s ease-in-out; */
 }
 
 .ui-skills-chart:hover {
-    perspective: 1000;
-    transform: scale(1.2);
+  perspective: 1000;
+  transform: scale(1.2);
 }
 
 

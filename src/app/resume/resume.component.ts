@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from './shared/user.service';
-import { User } from './shared/user.model';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {UserService} from './shared/user.service';
+import {User} from './shared/user.model';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-resume',
@@ -15,21 +16,21 @@ import { User } from './shared/user.model';
 })
 export class ResumeComponent implements OnInit {
 
-  isLoading: boolean = true;
+  isLoading = true;
   user: User;
   loadingClass = '';
-  loadingScreensCount: number = 3;
+  loadingScreensCount = 3;
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    // private route: ActivatedRoute
   ) {
     // wczytanie usera
     this.userService.getUserObservable().subscribe(
       (user) => {
         this.user = user;
-        setTimeout(() => this.isLoading = false, 500);
-        // this.isLoading = false;
+        // setTimeout(() => this.isLoading = false, 500);
+        this.isLoading = false;
       }
     );
   }
@@ -53,10 +54,11 @@ export class ResumeComponent implements OnInit {
   }
 
   getClasses() {
-    let classes = {};
+    const classes = {};
     // classes['hidden']=this.isLoading == false;
-    classes['ui-animation-loading-fade-out'] = this.isLoading == false;
-    classes[this.loadingClass] = true;
+    classes['ui-animation-loading-fade-out'] = this.isLoading === false;
+    // classes[this.loadingClass] = true;
+    classes['ui-loading-3'] = true;
     return classes;
   }
 

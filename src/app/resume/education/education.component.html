@@ -1,30 +1,30 @@
 <div class="ui-section ui-education">
-    <div class="ui-subtitle">
-      <div class="ui-subtitle-text">Wykształcenie</div>
-      <div class="ui-subtitle-line"></div>
-    </div>
-    <div class="ui-timeline-content">
-      <ng-container *ngFor="let edu of user.educations; let i = index">
-        <div class="ui-timeline-period">
-          <div>{{ edu.from | date: 'yyyy' }}</div>
-          <div>{{ edu.from | date: 'MMMM' }}</div>
-        </div>
-        <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
-        <div class="ui-timeline-period">
-          <div>{{ edu.to | date: 'yyyy' }}</div>
-          <div>{{ edu.to | date: 'MMMM' }}</div>
-        </div>
-        <div>
-          <div class="ui-timeline-line">
-            <div class="ui-timeline-circle"></div>
-          </div>
-        </div>
-        <div class="ui-timeline-description">
-          <div class="ui-timeline-name">{{ edu.name }}</div>
-          <div class="ui-timeline-position">{{ edu.specialization }} ({{ edu.title }})</div>
-          <hr/>
-          <div class="ui-timeline-text" [innerHTML]="edu.description"></div>
-        </div>
-      </ng-container>
-    </div>
+  <div class="ui-subtitle">
+    <div class="ui-subtitle-text">Wykształcenie</div>
+    <div class="ui-subtitle-line"></div>
   </div>
+  <div class="ui-timeline-content">
+    <ng-container *ngFor="let edu of user.educations; let i = index">
+      <div class="ui-timeline-period">
+        <div>{{ edu.from | date: 'yyyy' }}</div>
+        <div>{{ edu.from | monthname }}</div>
+      </div>
+      <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
+      <div class="ui-timeline-period">
+        <div>{{ edu.to | date: 'yyyy' }}</div>
+        <div>{{ edu.to | monthname }}</div>
+      </div>
+      <div>
+        <div class="ui-timeline-line">
+          <div class="ui-timeline-circle"></div>
+        </div>
+      </div>
+      <div class="ui-timeline-description">
+        <div class="ui-timeline-name">{{ edu.name }}</div>
+        <div class="ui-timeline-position">{{ edu.specialization }} ({{ edu.title }})</div>
+        <hr/>
+        <div class="ui-timeline-text" [innerHTML]="edu.description"></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

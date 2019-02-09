@@ -4,24 +4,21 @@
     <div class="ui-subtitle-line"></div>
   </div>
   <div class="ui-about-content">
-    <!-- <div class="ui-about-description"> -->
-    <img src="assets/images/profile2.jpg" alt="profile" class="ui-about-image-profile" 
-      title="Tymczasowo w oczekiwaniu na normalne zdjęcie ;)"
-      style="/*(display: none;*/"
-    >
-    <!-- <div class="ui-about-text" [innerHtml]="user.about"></div> -->
-    <!-- </div> -->
     <div class="ui-about-contact">
-      <div>Data urodzenia</div>
+      <div class="ui-about-label">Data urodzenia</div>
       <div>{{ user.birthDate | date:'dd MMMM yyyy' }}</div>
-      <div>Strona internetowa</div>
-      <div>
-        <a target="_blank" [attr.href]="user.webpage ? user.webpage : null">{{ user.webpage }}</a>
-      </div>
-      <div>Telefon</div>
+      <ng-container *ngFor="let webPage of user.webPages; let i = index">
+        <div class="ui-about-label">{{ webPage.name }}</div>
+        <div>
+          <a target="_blank" [attr.href]="webPage.url ? webPage.url : null">{{ webPage.url }}</a>
+        </div>
+      </ng-container>
+      <div class="ui-about-label">Telefon</div>
       <div>{{ user.phone }}</div>
-      <div>E-mail</div>
+      <div class="ui-about-label">E-mail</div>
       <div>{{ user.email }}</div>
     </div>
+    <img src="assets/images/profile2.jpg" alt="profile" class="ui-about-image-profile"
+         title="Tymczasowo w oczekiwaniu na normalne zdjęcie ;)">
   </div>
 </div>

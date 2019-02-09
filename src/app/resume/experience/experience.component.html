@@ -7,12 +7,12 @@
     <ng-container *ngFor="let exp of user.experiences; let i = index">
       <div class="ui-timeline-period">
         <div>{{ exp.from | date: 'yyyy' }}</div>
-        <div>{{ exp.from | date: 'MMMM' }}</div>
+        <div>{{ exp.from | monthname }}</div>
       </div>
       <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
       <div class="ui-timeline-period" *ngIf="exp.to != null">
         <div>{{ exp.to | date: 'yyyy' }}</div>
-        <div>{{ exp.to | date: 'MMMM' }}</div>
+        <div>{{ exp.to | monthname }}</div>
       </div>
       <div class="ui-timeline-period now" *ngIf="exp.to == null">
         <div>teraz</div>
