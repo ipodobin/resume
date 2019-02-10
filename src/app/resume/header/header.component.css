@@ -1,6 +1,8 @@
 
 .ui-header {
-    background-color: #F2F9F8;
+    /*background-color: #F2F9F8;*/
+  background-color: #dbe6ef;
+  display: flex;
 }
 
 .ui-name {

@@ -231,6 +231,7 @@ export class UserService {
       )
     ];
     const consent = '';
+    const photoUrl = '';
     this.user = new User(
       name,
       title,
@@ -243,7 +244,8 @@ export class UserService {
       educations,
       experiences,
       hobbies,
-      consent
+      consent,
+      photoUrl
     );
   }
 }

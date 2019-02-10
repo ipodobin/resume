@@ -18,7 +18,8 @@ export class User {
     public educations: Education[],
     public experiences: Experience[],
     public hobbies: Hobby[],
-    public consent: string
+    public consent: string,
+    public photoUrl: string
   ) {
   }
 }

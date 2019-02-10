@@ -18,7 +18,14 @@
       <div class="ui-about-label">E-mail</div>
       <div>{{ user.email }}</div>
     </div>
-    <img src="assets/images/profile2.jpg" alt="profile" class="ui-about-image-profile"
-         title="Tymczasowo w oczekiwaniu na normalne zdjęcie ;)">
+    <div *ngIf="user.photoUrl != null"
+         class="ui-about-image-profile"
+         style="background: #fff;">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/resume-ipodobin.appspot.com/o/images%2Ftest.jpg?alt=media&token=c8bdf547-8863-4d62-b71d-f712b8daf639"
+        alt="profile"
+        style="opacity: 0; max-width: 100%;"
+        [@imageLoad]='state'>
+    </div>
   </div>
 </div>

@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-direction: row;
   margin-bottom: .8em;
+  margin-left: -2em;
 }
 
 .ui-subtitle-text {

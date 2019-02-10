@@ -1,21 +1,11 @@
 <div class="ui-section ui-header">
-  <div class="ui-name">{{ user.name }}</div>
-  <div class="ui-title">{{ user.title }}</div>
-  <ul class="ui-menu">
-    <li class="ui-menu-item">
-      <a (click)="onClick('about')">O mnie</a>
-    </li>
-    <li class="ui-menu-item">
-      <a (click)="onClick('skills')">Umiejętności</a>
-    </li>
-    <li class="ui-menu-item">
-      <a (click)="onClick('experience')">Doświadczenie</a>
-    </li>
-    <li class="ui-menu-item">
-      <a (click)="onClick('education')">Wykształcenie</a>
-    </li>
-    <li class="ui-menu-item">
-      <a (click)="onClick('hobby')">Zainteresowania</a>
-    </li>
-  </ul>
+  <img *ngIf="user.photoUrl != null"
+       src="https://firebasestorage.googleapis.com/v0/b/resume-ipodobin.appspot.com/o/images%2Ftest.jpg?alt=media&token=d2c86dff-a889-4ae4-b2c7-8ef06ca56e9f"
+       style="opacity: 0; width: 6em; height: 6em; border-radius: 50%; margin-right: 1em; border: 3px solid #585858;"
+       [@imageLoad]='state'
+       (load)="animateImage()">
+  <div>
+    <div class="ui-name">{{ user.name }}</div>
+    <div class="ui-title">{{ user.title }}</div>
+  </div>
 </div>

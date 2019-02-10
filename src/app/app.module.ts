@@ -23,6 +23,9 @@ import localePL from '@angular/common/locales/pl';
 import {HtmlToPdfComponent} from './resume/html-to-pdf/html-to-pdf.component';
 import {MonthNamePipe} from './resume/shared/pipes/MonthNamePipe';
 import {ConsentComponent} from './resume/consent/consent.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 registerLocaleData(localePL);
 
@@ -45,8 +48,18 @@ registerLocaleData(localePL);
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyCOC5S7YuCIrZgf1G8HtsJnXGil0AIZ7NA',
+      authDomain: 'resume-ipodobin.firebaseapp.com',
+      databaseURL: 'https://resume-ipodobin.firebaseio.com',
+      projectId: 'resume-ipodobin',
+      storageBucket: 'resume-ipodobin.appspot.com',
+      messagingSenderId: '1062616642548'
+    }),
+    AngularFireStorageModule
     // TranslateModule.forRoot({
     //   loader: {
     //     provide: TranslateLoader,
