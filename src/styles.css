@@ -24,7 +24,7 @@ body {
 .ui-subtitle-text {
   background-color: #003333;
   color: #FFF8F0;
-  padding: 10px 15px;
+  padding: .5em;
   flex: 0 1 auto;
   width: 10em;
   text-align: center;
