@@ -10,8 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "gh-pages": "git subtree push --prefix dist origin gh-pages | ng build --prod --base-href \"https://ipodobin.github.io/resume/\"",
-    "deploy" : "ng b --prod --base-href https://ipodobin.github.io/resume/ --output-path docs"
+    "deploy" : "ng b --prod --base-href https://ipodobin.github.io/resume/ --output-path docs && git commit -am 'deploy' && git push"
   },
   "private": true,
   "dependencies": {
