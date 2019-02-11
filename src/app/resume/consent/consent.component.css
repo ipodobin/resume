@@ -1,0 +1,14 @@
+
+.ui-consent {
+  font-size: .4em;
+  display: none;
+}
+
+
+@media print {
+
+  .ui-consent {
+    display: block;
+  }
+
+}
