@@ -4,18 +4,25 @@
     <div class="ui-subtitle-line"></div>
   </div>
   <div class="ui-timeline-content">
-    <ng-container *ngFor="let edu of user.educations; let i = index">
-      <div class="ui-timeline-period">
-        <div>{{ edu.from | date: 'yyyy' }}</div>
-        <div>{{ edu.from | monthname }}</div>
+    <ng-container *ngFor="let edu of educations; let i = index">
+      <div class="ui-timeline-period-container"
+           [ngStyle]="{'grid-row': (i * 2 + 1)}">
+        <div class="ui-timeline-period">
+          <div>{{ edu.from | date: 'yyyy' }}</div>
+          <div>{{ edu.from | monthname }}</div>
+        </div>
+        <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
+        <div class="ui-timeline-period" *ngIf="edu.to != null">
+          <div>{{ edu.to | date: 'yyyy' }}</div>
+          <div>{{ edu.to | monthname }}</div>
+        </div>
+        <div class="ui-timeline-period now" *ngIf="edu.to == null">
+          <div>teraz</div>
+        </div>
       </div>
-      <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
-      <div class="ui-timeline-period">
-        <div>{{ edu.to | date: 'yyyy' }}</div>
-        <div>{{ edu.to | monthname }}</div>
-      </div>
-      <div>
-        <div class="ui-timeline-line">
+      <div class="ui-timeline-line"
+           [ngStyle]="{'grid-row': (i * 2 + 1) + ' / span 2'}">
+        <div>
           <div class="ui-timeline-circle"></div>
         </div>
       </div>

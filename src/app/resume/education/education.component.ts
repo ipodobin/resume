@@ -3,6 +3,7 @@ import { Education } from '../shared/education.model';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
 import { Observable } from 'rxjs/Observable';
+import {Experience} from '../shared/experience.model';
 
 @Component({
   selector: 'app-education',
@@ -13,8 +14,8 @@ import { Observable } from 'rxjs/Observable';
 export class EducationComponent implements OnInit {
 
   // user: Observable<User>;
-  @Input()
-  user: User;
+  // @Input() user: User;
+  @Input() educations: Education[];
 
   constructor(private userService: UserService) { }
 
