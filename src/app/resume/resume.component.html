@@ -5,8 +5,13 @@
     <app-header id="header" [user]="user"></app-header>
     <app-about id="about" [user]="user"></app-about>
     <app-skills id="skills" [user]="user"></app-skills>
-    <app-experience id="experience" [user]="user"></app-experience>
-    <app-education id="education" [user]="user"></app-education>
+    <app-experience id="experience"
+                    [experiences]="user.experiences"
+                    [title]="'Doświadczenie'"></app-experience>
+    <app-experience id="education"
+                    [experiences]="user.educations"
+                    [title]="'Wykształcenie'"></app-experience>
+    <!--<app-education id="education" [user]="user"></app-education>-->
     <app-hobby id="hobby" [user]="user"></app-hobby>
     <app-consent id="consent" [user]="user"></app-consent>
   </div>

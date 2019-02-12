@@ -47,6 +47,11 @@ body {
   margin: 0;
 }
 
+.ui-timeline-period-container {
+  display: grid;
+  grid-template-columns: 6em .4em 6em auto;
+}
+
 .ui-timeline-period > div {
   display: block;
   text-align: center;
@@ -71,6 +76,10 @@ body {
 }
 
 .ui-timeline-line {
+
+}
+
+.ui-timeline-line > div {
   position: relative;
   width: .4em;
   height: 100%;
@@ -101,15 +110,30 @@ a:link:active, a:visited:active, a:hover {
 
 .ui-timeline-content {
   display: grid;
-  grid-template-columns: 6em .4em 6em 5em auto;
+  grid-template-columns: 12em 5em auto;
   grid-auto-rows: auto;
   font-size: .6em;
   font-weight: bold;
 }
 
 @media only screen and (max-width: 800px) {
+
   .ui-timeline-content {
-    overflow: hidden;
+    grid-template-columns: 5em auto;
+    grid-auto-rows: 7em auto;
+  }
+
+  .ui-timeline-period-container {
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .ui-timeline-line {
+    grid-column: 1;
+  }
+
+  .ui-timeline-description {
+    grid-column: 2;
   }
 
 }

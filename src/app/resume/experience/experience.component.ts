@@ -15,8 +15,9 @@ import {DatePipe} from '@angular/common';
 export class ExperienceComponent implements OnInit {
 
   // user: Observable<User>;
-  @Input()
-  user: User;
+  // @Input() user: User;
+  @Input() experiences: Experience[];
+  @Input() title: string;
   months: string[];
 
   constructor(

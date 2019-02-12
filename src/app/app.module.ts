@@ -20,7 +20,6 @@ import {HttpClientModule} from '@angular/common/http';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {DatePipe, registerLocaleData} from '@angular/common';
 import localePL from '@angular/common/locales/pl';
-import {HtmlToPdfComponent} from './resume/html-to-pdf/html-to-pdf.component';
 import {MonthNamePipe} from './resume/shared/pipes/MonthNamePipe';
 import {ConsentComponent} from './resume/consent/consent.component';
 import {AngularFireModule} from '@angular/fire';
@@ -42,7 +41,6 @@ registerLocaleData(localePL);
     AboutComponent,
     SkillLevelComponent,
     HobbyComponent,
-    HtmlToPdfComponent,
     MonthNamePipe,
     ConsentComponent
   ],
