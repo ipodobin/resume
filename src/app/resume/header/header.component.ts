@@ -22,21 +22,14 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class HeaderComponent implements OnInit {
 
-  // user: Observable<User>;
-  @Input()
-  user: User;
+  @Input() user: User;
   state = 'none';
+  showDetails = true;
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    // this.user = this.userService.getUserObservable();
+  constructor(private userService: UserService) {
   }
 
-  onClick(id: string) {
-    document.querySelector('#' + id).scrollIntoView({
-      'behavior': 'smooth'
-    });
+  ngOnInit() {
   }
 
   public animateImage() {

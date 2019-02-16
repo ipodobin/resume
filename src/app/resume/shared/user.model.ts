@@ -19,7 +19,8 @@ export class User {
     public experiences: Experience[],
     public hobbies: Hobby[],
     public consent: string,
-    public photoUrl: string
+    public photoUrl: string,
+    public location = ''
   ) {
   }
 }

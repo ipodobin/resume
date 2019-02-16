@@ -92,6 +92,23 @@
   background-image: url(/assets/images/loading7.gif);
 }
 
+.ui-container>.ui-component:first-child>.ui-section {
+  /*background-color: #F2F9F8;*/
+  background-color: #dbe6ef;
+}
+
+.ui-container>.ui-component:nth-child(2)>.ui-section {
+  background: #FFFFFF; /* Old browsers */
+  /*background: -moz-linear-gradient(top, #F2F9F8 0%, #FFFFFF 60%); !* FF3.6-15 *!*/
+  /*background: -webkit-linear-gradient(top, #F2F9F8 0%, #FFFFFF 60%); !* Chrome10-25,Safari5.1-6 *!*/
+  /*background: linear-gradient(to bottom, #F2F9F8 0%, #FFFFFF 60%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F9F8', endColorstr='#FFFFFF', GradientType=0); !* IE6-9 *!*/
+  background: -moz-linear-gradient(top, #dbe6ef 0%, #FFFFFF 60%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #dbe6ef 0%, #FFFFFF 60%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #dbe6ef 0%, #FFFFFF 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbe6ef', endColorstr='#FFFFFF', GradientType=0); /* IE6-9 */
+}
+
 @keyframes animation-loading-fade-out {
   0% {
     opacity: 1;

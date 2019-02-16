@@ -1,5 +1,5 @@
 <div class="ui-section ui-header">
-  <img *ngIf="user.photoUrl != null"
+  <img *ngIf="user.photoUrl != null && false"
        src="{{ user.photoUrl }}"
        style="opacity: 0;"
        class="ui-photo"
@@ -8,5 +8,37 @@
   <div>
     <div class="ui-name">{{ user.name }}</div>
     <div class="ui-title">{{ user.title }}</div>
+    <div class="ui-details">
+      <div>
+        <img [src]="'assets/images/location.svg'">
+        <label *ngIf="!showDetails"
+               (click)="showDetails=true"
+               class="ui-label-hover">Click to show</label>
+        <label *ngIf="showDetails">{{ user.location }}</label>
+      </div>
+      <div>
+        <img [src]="'assets/images/email.svg'">
+        <label *ngIf="!showDetails"
+               (click)="showDetails=true"
+               class="ui-label-hover">Click to show</label>
+        <label *ngIf="showDetails">{{ user.email }}</label>
+      </div>
+      <div>
+        <img [src]="'assets/images/phone.svg'">
+        <label *ngIf="!showDetails"
+               (click)="showDetails=true"
+               class="ui-label-hover">Click to show</label>
+        <label *ngIf="showDetails">{{ user.phone }}</label>
+      </div>
+    </div>
+    <div class="ui-details">
+      <div *ngFor="let page of user.webPages">
+        <img [src]="'assets/images/web.svg'">
+        <label *ngIf="!showDetails"
+               (click)="showDetails=true"
+               class="ui-label-hover">Click to show</label>
+        <a *ngIf="showDetails" target="_blank" [attr.href]="page.url ? page.url : null">{{ page.name }}</a>
+      </div>
+    </div>
   </div>
 </div>

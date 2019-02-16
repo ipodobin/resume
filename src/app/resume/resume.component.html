@@ -2,13 +2,13 @@
 <div class="ui-scrollable ui-fullpage">
   <div class="ui-side ui-side-left"></div>
   <div class="ui-container" [ngClass]="{'hidden': isLoading==true}" *ngIf="isLoading==false">
-    <app-header id="header" [user]="user"></app-header>
-    <app-about id="about" [user]="user"></app-about>
-    <app-skills id="skills" [user]="user"></app-skills>
-    <app-experience id="experience" [experiences]="user.experiences"></app-experience>
-    <app-education id="education" [educations]="user.educations"></app-education>
-    <app-hobby id="hobby" [user]="user"></app-hobby>
-    <app-consent id="consent" [user]="user"></app-consent>
+    <app-header id="header" [user]="user" class="ui-component"></app-header>
+    <app-about id="about" [user]="user" class="ui-component" *ngIf="false"></app-about>
+    <app-skills id="skills" [user]="user" class="ui-component"></app-skills>
+    <app-experience id="experience" [experiences]="user.experiences" class="ui-component"></app-experience>
+    <app-education id="education" [educations]="user.educations" class="ui-component"></app-education>
+    <app-hobby id="hobby" [user]="user" class="ui-component"></app-hobby>
+    <app-consent id="consent" [user]="user" class="ui-component"></app-consent>
   </div>
   <div class="ui-side ui-side-right"></div>
 </div>

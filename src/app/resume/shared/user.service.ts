@@ -7,18 +7,25 @@ import {Experience} from './experience.model';
 import {Hobby} from './hobby.model';
 import {WebPage} from './webpage.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
   private user: User;
   userChanged = new Subject<User>();
   private userObservable: Observable<User>;
+  // private userObservable: AngularFireList<User>;
 
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private db: AngularFireDatabase
+  ) {
     this.userObservable = this.loadUser();
+    // this.userObservable = db.list('/en', ref =>
+    //   ref.limitToFirst(1));
   }
 
   storeUser(user: User) {
@@ -37,7 +44,7 @@ export class UserService {
       'Content-Type': 'application/json'
     });
 
-    const apiURL = 'https://resume-ipodobin.firebaseio.com/data.json';
+    const apiURL = 'https://resume-ipodobin.firebaseio.com/en.json';
     return this.http.get<User>(apiURL);
   }
 
@@ -71,81 +78,97 @@ export class UserService {
       new Skill(
         'Java 7/8',
         90,
+        '',
         'Java 7/8'
       ),
       new Skill(
         'Java EE',
         90,
+        '',
         'Java Enterprise Edition'
       ),
       new Skill(
         'EJB',
         90,
+        '',
         'Enterprise Java Beans'
       ),
       new Skill(
         'EclipseLink',
         80,
+        '',
         'Java Persistent API - EclipseLink'
       ),
       new Skill(
         'Hibernate',
         80,
+        '',
         'Java Persistent API - Hibernate'
       ),
       new Skill(
         'GlassFish',
         80,
+        '',
         'Serwer aplikacyjny GlassFish'
       ),
       new Skill(
         'Wildfly',
         80,
+        '',
         'Serwer aplikacyjny Wildfly/JBoss'
       ),
       new Skill(
         'JS ES7',
         90,
+        '',
         'JavaScript Ecma Script 2016'
       ),
       new Skill(
         'jQuery',
         80,
+        '',
         'jQuery + jQuery UI'
       ),
       new Skill(
         'JSF',
         80,
+        '',
         'Java Server Faces'
       ),
       new Skill(
         'JMS',
         60,
+        '',
         'Java Message Service'
       ),
       new Skill(
         'Java Spring',
         50,
+        '',
         'Java Spring'
       ),
       new Skill(
         'Angular 5',
         50,
+        '',
         'Angular 5'
       ),
       new Skill(
         '.Net C#',
         60,
+        '',
         '.Net C#'
       ),
       new Skill(
         '.Net WPF',
         60,
+        '',
         '.Net WPF'
       ),
       new Skill(
         'C++',
         60,
+        '',
         'C++'
       )
     ];

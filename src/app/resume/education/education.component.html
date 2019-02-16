@@ -30,7 +30,7 @@
         <div class="ui-timeline-name">{{ edu.name }}</div>
         <div class="ui-timeline-position">{{ edu.specialization }} ({{ edu.title }})</div>
         <hr/>
-        <div class="ui-timeline-text" [innerHTML]="edu.description"></div>
+        <div class="ui-timeline-text" [innerHTML]="edu.description" *ngIf="edu.description != null && edu.description != ''"></div>
       </div>
     </ng-container>
   </div>

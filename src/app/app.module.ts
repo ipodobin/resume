@@ -25,6 +25,10 @@ import {ConsentComponent} from './resume/consent/consent.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SkillsEnabledPipe} from './resume/skills/skills.enabled.pipe';
+import { RouterModule, Routes } from '@angular/router';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 registerLocaleData(localePL);
 
@@ -41,8 +45,9 @@ registerLocaleData(localePL);
     AboutComponent,
     SkillLevelComponent,
     HobbyComponent,
+    ConsentComponent,
     MonthNamePipe,
-    ConsentComponent
+    SkillsEnabledPipe
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ registerLocaleData(localePL);
       storageBucket: 'resume-ipodobin.appspot.com',
       messagingSenderId: '1062616642548'
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule
     // TranslateModule.forRoot({
     //   loader: {
     //     provide: TranslateLoader,
@@ -67,9 +73,10 @@ registerLocaleData(localePL);
     // })
   ],
   providers: [
-    // { provide: LOCALE_ID, useValue: "en-US" }
-    {provide: LOCALE_ID, useValue: 'pl-PL'},
-    DatePipe
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    // {provide: LOCALE_ID, useValue: 'pl-PL'},
+    DatePipe,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })

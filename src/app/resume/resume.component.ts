@@ -20,10 +20,11 @@ export class ResumeComponent implements OnInit {
   user: User;
   loadingClass = '';
   loadingScreensCount = 3;
+  edit = false;
 
   constructor(
     private userService: UserService,
-    // private route: ActivatedRoute
+    private route: ActivatedRoute
   ) {
     // wczytanie usera
     this.userService.getUserObservable().subscribe(
@@ -33,6 +34,12 @@ export class ResumeComponent implements OnInit {
         this.isLoading = false;
       }
     );
+    // this.route.queryParams.subscribe(params => {
+    //   this.mode = params['mode'];
+    //   console.log('mode:', this.mode);
+    // });
+    this.edit = this.route.snapshot.paramMap.get('mode') === 'edit';
+    console.log('edit:', this.edit);
   }
 
   ngOnInit() {
