@@ -51,12 +51,13 @@ export class ResumeComponent implements OnInit {
     // });
 
     this.translate.setDefaultLang('en');
-    this.translate.use('pl');
+    // this.translate.use('pl');
+    // this.translate.use(navigator.language);
 
     this.name = this.route.snapshot.paramMap.get('name');
-    console.log('name:', this.name);
+    // console.log('name:', this.name);
     this.edit = this.route.snapshot.paramMap.get('mode') === 'edit';
-    console.log('edit:', this.edit);
+    // console.log('edit:', this.edit);
     this.refreshUser();
   }
 

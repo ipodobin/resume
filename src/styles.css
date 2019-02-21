@@ -49,7 +49,7 @@ body {
   clear: both;
 }
 
-.ui-timeline-description>:first-child {
+.ui-timeline-description > :first-child {
   padding-bottom: 1em;
 }
 
@@ -136,7 +136,11 @@ a:link:active, a:visited:active, a:hover {
   grid-template-columns: 12em 5em auto;
   grid-auto-rows: auto;
   font-size: .6em;
-  font-weight: bold;
+  /*font-weight: bold;*/
+}
+
+.ui-timeline-period.middle {
+  margin-top: .5em;
 }
 
 @media only screen and (max-width: 800px) {
@@ -149,6 +153,7 @@ a:link:active, a:visited:active, a:hover {
   .ui-timeline-period-container {
     grid-column: 2;
     align-self: center;
+    display: flex;
   }
 
   .ui-timeline-line {
@@ -164,5 +169,30 @@ a:link:active, a:visited:active, a:hover {
     display: flex;
   }
 
+  .ui-timeline-period.middle,
+  .ui-timeline-period.now {
+    margin-top: 0;
+  }
+
+  .ui-timeline-period:not(:first-child),
+  .ui-timeline-period > div:not(:first-child) {
+    margin-left: .5em;
+  }
+
 }
 
+@media print {
+
+  .ui-timeline-circle {
+    left: -.64em;
+  }
+
+  .ui-subtitle-line {
+    margin-left: -1px;
+  }
+
+  .ui-timeline-line:not(:first-of-type) > div {
+    margin-top: -1px;
+  }
+
+}

@@ -11,13 +11,13 @@
           <div>{{ exp.from | date: 'yyyy' }}</div>
           <div>{{ exp.from | monthname }}</div>
         </div>
-        <div class="ui-timeline-period" style="margin-top: .5em;">-</div>
+        <div class="ui-timeline-period middle">-</div>
         <div class="ui-timeline-period" *ngIf="exp.to != null">
           <div>{{ exp.to | date: 'yyyy' }}</div>
           <div>{{ exp.to | monthname }}</div>
         </div>
-        <div class="ui-timeline-period now" *ngIf="exp.to == null && false">
-          <div>{{ 'now' | translate }}</div>
+        <div class="ui-timeline-period now" *ngIf="exp.to == null">
+          <div>{{ 'present' | translate }}</div>
         </div>
       </div>
       <div class="ui-timeline-line"
