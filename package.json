@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng b --prod --base-href https://ipodobin.github.io/resume/ --output-path docs && git add docs && git commit -am 'deploy' && git push"
+    "deploy": "ng b --prod --base-href resume --output-path docs && git add docs && git commit -am 'deploy' && git push"
   },
   "private": true,
   "dependencies": {
