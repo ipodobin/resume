@@ -7,7 +7,7 @@ html, body {
 
 body {
   font-family: 'Cinzel', sans-serif;
-  font-size: calc(16px + (24 - 16) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(13px + (20 - 13) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .ui-section {
@@ -45,6 +45,14 @@ body {
   grid-column: 3;
 }
 
+.ui-timeline-description > hr {
+  clear: both;
+}
+
+.ui-timeline-description>:first-child {
+  padding-bottom: 1em;
+}
+
 .ui-timeline-description ol {
   margin: 0;
 }
@@ -73,10 +81,20 @@ body {
 .ui-timeline-position {
   font-weight: bold;
   color: #9B2922;
+  margin-right: .5em;
 }
 
 .ui-timeline-text {
-  margin: 1em;
+  padding: 1em;
+  border-top: 1px solid #ccc;
+}
+
+.ui-timeline-text p:first-child {
+  margin: 0;
+}
+
+.ui-timeline-text p:not(:first-child) {
+  margin: .8em 0 0;
 }
 
 .ui-timeline-line {
@@ -142,12 +160,8 @@ a:link:active, a:visited:active, a:hover {
     grid-row: span 1;
   }
 
-}
-
-@media print {
-
-  body {
-    font-size: 19px;
+  .ui-timeline-period {
+    display: flex;
   }
 
 }

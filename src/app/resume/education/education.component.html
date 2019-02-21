@@ -1,6 +1,6 @@
 <div class="ui-section ui-education">
   <div class="ui-subtitle">
-    <div class="ui-subtitle-text">Wykształcenie</div>
+    <div class="ui-subtitle-text">{{ 'education' | translate }}</div>
     <div class="ui-subtitle-line"></div>
   </div>
   <div class="ui-timeline-content">
@@ -16,8 +16,8 @@
           <div>{{ edu.to | date: 'yyyy' }}</div>
           <div>{{ edu.to | monthname }}</div>
         </div>
-        <div class="ui-timeline-period now" *ngIf="edu.to == null">
-          <div>teraz</div>
+        <div class="ui-timeline-period now" *ngIf="edu.to == null && false">
+          <div>{{ 'now' | translate }}</div>
         </div>
       </div>
       <div class="ui-timeline-line"
@@ -27,10 +27,15 @@
         </div>
       </div>
       <div class="ui-timeline-description">
-        <div class="ui-timeline-name">{{ edu.name }}</div>
-        <div class="ui-timeline-position">{{ edu.specialization }} ({{ edu.title }})</div>
-        <hr/>
-        <div class="ui-timeline-text" [innerHTML]="edu.description" *ngIf="edu.description != null && edu.description != ''"></div>
+        <div>
+          <div class="ui-timeline-name">{{ edu.name }}</div>
+          <div style="display: flex;">
+            <div class="ui-timeline-position">{{ edu.specialization }}</div>
+            <div class="ui-timeline-position" *ngIf="edu.title != ''">({{ edu.title }})</div>
+          </div>
+        </div>
+        <div class="ui-timeline-text" [innerHTML]="edu.description"
+             *ngIf="edu.description != null && edu.description != ''"></div>
       </div>
     </ng-container>
   </div>

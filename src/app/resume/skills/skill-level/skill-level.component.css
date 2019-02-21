@@ -4,7 +4,7 @@
   display: block;
   text-align: center;
   /* margin-top: .2em; */
-  font-size: .7em;
+  font-size: .6em;
 }
 
 .ui-skill-level {
@@ -55,8 +55,6 @@
   line-height: 5em;
   width: 5em;
   text-align: center;
-  display: block;
-  /* color: #53777A; */
   z-index: 2;
   display: none;
 }

@@ -1,19 +1,31 @@
 
 .ui-skills-content {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-column-gap: 1em;
+}
+
+.ui-skills-group:not(:first-of-type) {
+}
+
+.ui-skills-group {
   display: flex;
-  /*justify-content: center;*/
   flex-wrap: wrap;
+}
+
+.ui-skills-content > label {
+  font-size: .8em;
+  padding-top: .8em;
 }
 
 .ui-skills-chart {
   margin: .2em;
   width: 5em;
   overflow: hidden;
-  /* transition: all .5s ease-in-out; */
 }
 
 .ui-skills-chart:hover {
-  perspective: 1000;
+  /*perspective: 1000px;*/
   transform: scale(1.2);
 }
 

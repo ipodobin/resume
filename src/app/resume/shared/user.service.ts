@@ -2,30 +2,24 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {User} from './user.model';
 import {Skill} from './skill.model';
-import {Education} from './education.model';
-import {Experience} from './experience.model';
-import {Hobby} from './hobby.model';
-import {WebPage} from './webpage.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs/Observable';
+import {TranslateService} from '@ngx-translate/core';
+import {SkillGroup} from './skill.group.model';
+import {combineLatest} from 'rxjs';
 
 @Injectable()
 export class UserService {
   private user: User;
-  userChanged = new Subject<User>();
   private userObservable: Observable<User>;
-  // private userObservable: AngularFireList<User>;
 
 
   constructor(
     private http: HttpClient,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private translate: TranslateService
   ) {
-    this.userObservable = this.loadUser();
-    // this.userObservable = db.list('/en', ref =>
-    //   ref.limitToFirst(1));
   }
 
   storeUser(user: User) {
@@ -39,236 +33,106 @@ export class UserService {
     );
   }
 
-  loadUser(): Observable<User> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+  loadUser(name: string): Observable<User> {
+    const observable = new Observable<User>(observer => {
+      const skills$ = this.db.object<Skill>('/skills').valueChanges();
+      const groups$ = this.db.object<SkillGroup>('/groups').valueChanges();
+      const pages$ = this.db.object<SkillGroup>('/webPages').valueChanges();
+      const experiences$ = this.db.object<SkillGroup>('/experiences').valueChanges();
+      const educations$ = this.db.object<SkillGroup>('/educations').valueChanges();
+      const hobbies$ = this.db.object<SkillGroup>('/hobbies').valueChanges();
+      const data$ = combineLatest([skills$, groups$, pages$, experiences$, educations$, hobbies$]);
+      data$.subscribe(results => {
+        const skills = results[0];
+        const groups = results[1];
+        const pages = results[2];
+        const experiences = results[3];
+        const educations = results[4];
+        const hobbies = results[5];
+
+        let path;
+        if (name != null && name !== '') {
+          path = '/data/' + name;
+        } else {
+          path = '/default/' + this.translate.currentLang;
+        }
+
+        this.db.object<User>(path).valueChanges().subscribe(value => {
+          // skills
+          const _skills = [];
+          for (const key in value.skills) {
+            if (value.skills.hasOwnProperty(key)) {
+              const skill = skills[key];
+              if (skill == null) {
+                continue;
+              }
+              skill.group = groups[skill.group];
+              _skills.push(skill);
+            }
+          }
+          value.skills = _skills;
+          // webpages
+          const _pages = [];
+          for (const key in value.webPages) {
+            if (value.webPages.hasOwnProperty(key)) {
+              const page = pages[key];
+              _pages.push(page);
+            }
+          }
+          value.webPages = _pages;
+          // experiences
+          const _experiences = [];
+          for (const key in value.experiences) {
+            if (value.experiences.hasOwnProperty(key)) {
+              const experience = experiences[key];
+              experience.description = experience.description[value.lang];
+              experience.position = experience.position[value.lang];
+              _experiences.push(experience);
+            }
+          }
+          value.experiences = _experiences;
+          // educations
+          const _educations = [];
+          for (const key in value.educations) {
+            if (value.educations.hasOwnProperty(key)) {
+              const education = educations[key];
+              education.specialization = education.specialization[value.lang];
+              education.name = education.name[value.lang];
+              education.title = education.title[value.lang];
+              _educations.push(education);
+            }
+          }
+          value.educations = _educations;
+          // hobbies
+          const _hobbies = [];
+          for (const key in value.hobbies) {
+            if (value.hobbies.hasOwnProperty(key)) {
+              const hobby = hobbies[key];
+              _hobbies.push(hobby);
+            }
+          }
+          value.hobbies = _hobbies;
+
+          observer.next(value as User);
+        });
+      });
+
+      // this.db.list<User>('/' + name, ref => ref.limitToFirst(1)).valueChanges().subscribe(value => {
+      //   console.log('value', value);
+      // });
+
+
+      // const headers = new HttpHeaders({
+      //   'Content-Type': 'application/json'
+      // });
+      // const apiURL = 'https://resume-ipodobin.firebaseio.com/' + name + '.json';
+      // this.http.get<User>(apiURL).subscribe(value => observer.next(value));
+
     });
-
-    const apiURL = 'https://resume-ipodobin.firebaseio.com/en.json';
-    return this.http.get<User>(apiURL);
-  }
-
-
-  getUser() {
-    return this.user;
+    return observable;
   }
 
   getUserObservable() {
     return this.userObservable;
-  }
-
-  initUser() {
-    const name = 'Igor Podobiński';
-    const title = 'Java/Javascript Developer';
-    const birthDate: Date = new Date('1985-08-14');
-    const webPages: WebPage[] = [
-      new WebPage(
-        'GitHub',
-        'https://github.com/ipodobin'
-      ),
-      new WebPage(
-        'LinkedIn',
-        'https://www.linkedin.com/in/ipodobin/'
-      )
-    ];
-    const phone = '00 48 501 031 552';
-    const email = 'ipodobin@gmail.com';
-    const about = '<p></p>';
-    const skills: Skill[] = [
-      new Skill(
-        'Java 7/8',
-        90,
-        '',
-        'Java 7/8'
-      ),
-      new Skill(
-        'Java EE',
-        90,
-        '',
-        'Java Enterprise Edition'
-      ),
-      new Skill(
-        'EJB',
-        90,
-        '',
-        'Enterprise Java Beans'
-      ),
-      new Skill(
-        'EclipseLink',
-        80,
-        '',
-        'Java Persistent API - EclipseLink'
-      ),
-      new Skill(
-        'Hibernate',
-        80,
-        '',
-        'Java Persistent API - Hibernate'
-      ),
-      new Skill(
-        'GlassFish',
-        80,
-        '',
-        'Serwer aplikacyjny GlassFish'
-      ),
-      new Skill(
-        'Wildfly',
-        80,
-        '',
-        'Serwer aplikacyjny Wildfly/JBoss'
-      ),
-      new Skill(
-        'JS ES7',
-        90,
-        '',
-        'JavaScript Ecma Script 2016'
-      ),
-      new Skill(
-        'jQuery',
-        80,
-        '',
-        'jQuery + jQuery UI'
-      ),
-      new Skill(
-        'JSF',
-        80,
-        '',
-        'Java Server Faces'
-      ),
-      new Skill(
-        'JMS',
-        60,
-        '',
-        'Java Message Service'
-      ),
-      new Skill(
-        'Java Spring',
-        50,
-        '',
-        'Java Spring'
-      ),
-      new Skill(
-        'Angular 5',
-        50,
-        '',
-        'Angular 5'
-      ),
-      new Skill(
-        '.Net C#',
-        60,
-        '',
-        '.Net C#'
-      ),
-      new Skill(
-        '.Net WPF',
-        60,
-        '',
-        '.Net WPF'
-      ),
-      new Skill(
-        'C++',
-        60,
-        '',
-        'C++'
-      )
-    ];
-    const educations: Education[] = [
-      new Education(
-        'Politechnika Warszawska - Wydział Elektroniki i Technik Informacyjnych',
-        'Elektronika i informatyka w medycynie',
-        new Date('2005-02-01'),
-        new Date('2010-02-01'),
-        'Inżynier',
-        '<ol>' +
-        '<li>Wykorzystanie osiągnięć elektroniki i informatyki w medycynie.</li>' +
-        '<li>Projektowanie i testowanie układów i systemów elektronicznych i fotonicznych stosowanych w szeroko rozumianej informatyce, ' +
-        'komunikacji, medycynie, metrologii i ochronie środowiska.</li>' +
-        '</ol>'
-      ),
-      new Education(
-        'Politechnika Warszawska - Wydział Elektroniki i Technik Informacyjnych',
-        'Elektronika i inżynieria komputerowa',
-        new Date('2005-02-01'),
-        new Date('2010-02-01'),
-        'Inżynier',
-        '<ol>' +
-        '<li>Projektowanie i wykorzystanie systemów tworzone w oparciu o techniki mikroelektroniczne, ' +
-        'optoelektroniczne i komputerowe.</li>' +
-        '<li>Projektowanie złożonych systemów elektronicznych obejmujących przyrządy półprzewodnikowe, czujniki, ' +
-        'przetworniki analogowo-cyfrowe i cyfrowo-analogowe, moduły komunikacyjne, mikroprocesory ' +
-        'oraz rekonfigurowalne układy cyfrowego przetwarzania sygnałów.</li></ol>'
-      )
-    ];
-    const experiences: Experience[] = [
-      new Experience(
-        'Content Networks sp. z o.o.',
-        new Date('2012-01-10'),
-        null,
-        'Programista Java',
-        '<div>Rozwijanie i utrzymanie aplikacji webowych dewelopowanych przez firmę. Między innymi:</div>' +
-        '<ol>' +
-        '<li>Aplikacja typu Digital Signage ' +
-        '(planowanie i zarządzanie wyświetlaniem kontentu na wyświetlaczach w różnych lokalizacjach).</li>' +
-        '<li>Aplikacja automatyzująca pobieranie materiałów do emisji w telewizji.</li>' +
-        '<li>Aplikacja automatyzująca archiwizowanie materiałów (wideo/audio/napisy) w telewizji.</li>' +
-        '</ol>'
-      ),
-      new Experience(
-        'Content Networks sp. z o.o.',
-        new Date('2010-08-30'),
-        new Date('2012-01-10'),
-        'Inżynier Systemowy',
-        'Integracja systemów informatycznych, głównie archiwów cyfrowych w polskich stacjach telewizyjnych. '
-      )
-    ];
-    const hobbies: Hobby[] = [
-      new Hobby(
-        'speleologia',
-        'caving2.svg',
-        'http://www.speleo.waw.pl'
-      ),
-      new Hobby(
-        'wspinaczka',
-        'climbing.svg',
-        'http://www.speleo.waw.pl'
-      ),
-      new Hobby(
-        'rower',
-        'biking.svg',
-        null
-      ),
-      new Hobby(
-        'żeglarstwo',
-        'sailing.svg',
-        null
-      ),
-      new Hobby(
-        'alpinizm',
-        'mountaineering.svg',
-        'http://www.speleo.waw.pl'
-      ),
-      new Hobby(
-        'narciarstwo przełajowe',
-        'cross-country-skiing.svg',
-        null
-      )
-    ];
-    const consent = '';
-    const photoUrl = '';
-    this.user = new User(
-      name,
-      title,
-      birthDate,
-      webPages,
-      phone,
-      email,
-      about,
-      skills,
-      educations,
-      experiences,
-      hobbies,
-      consent,
-      photoUrl
-    );
   }
 }

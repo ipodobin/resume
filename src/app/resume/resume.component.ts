@@ -4,6 +4,9 @@ import {UserService} from './shared/user.service';
 import {User} from './shared/user.model';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {SkillGroup} from './shared/skill.group.model';
+import {Skill} from './shared/skill.model';
 
 @Component({
   selector: 'app-resume',
@@ -21,43 +24,53 @@ export class ResumeComponent implements OnInit {
   loadingClass = '';
   loadingScreensCount = 3;
   edit = false;
+  name: string;
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
-  ) {
-    // wczytanie usera
-    this.userService.getUserObservable().subscribe(
-      (user) => {
-        this.user = user;
-        // setTimeout(() => this.isLoading = false, 500);
-        this.isLoading = false;
-      }
-    );
-    // this.route.queryParams.subscribe(params => {
-    //   this.mode = params['mode'];
-    //   console.log('mode:', this.mode);
-    // });
-    this.edit = this.route.snapshot.paramMap.get('mode') === 'edit';
-    console.log('edit:', this.edit);
+    private route: ActivatedRoute,
+    private translate: TranslateService) {
+
+
   }
 
   ngOnInit() {
     this.loadingClass = 'ui-loading-' + Math.round(Math.random() * this.loadingScreensCount + 1);
-    // // subscribe to route/fragment
-    // this.route.fragment.subscribe(fragment => {
-    //   try {
-    //     document.querySelector('#' + fragment).scrollIntoView({'behavior': 'smooth'});
-    //   } catch (e) { }
+
+    // this.route.queryParams.subscribe(params => {
+    //   this.mode = params['mode'];
+    //   console.log('mode:', this.mode);
     // });
 
-    // // this language will be used as a fallback when a translation isn't found in the current language
-    // this.translate.setDefaultLang('en');
-    // // the lang to use, if the lang isn't available, it will use the current loader to get them
-    // this.translate.use('pl');
+    // this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      // console.log('lang:', event.lang);
+      // if (this.name != null) {
+      //   return;
+      // }
+      // this.refreshUser();
+    // });
+
+    this.translate.setDefaultLang('en');
+    this.translate.use('pl');
+
+    this.name = this.route.snapshot.paramMap.get('name');
+    console.log('name:', this.name);
+    this.edit = this.route.snapshot.paramMap.get('mode') === 'edit';
+    console.log('edit:', this.edit);
+    this.refreshUser();
   }
 
-  ngAfterViewInit(): void {
+  refreshUser() {
+    // wczytanie usera
+    const resume_name = this.name ? this.name : 'default_' + this.translate.currentLang;
+    const user$ = this.userService.loadUser(resume_name);
+    user$.subscribe(
+      (user) => {
+        this.user = user;
+        this.translate.use(user.lang);
+        this.isLoading = false;
+      }
+    );
   }
 
   getClasses() {
@@ -67,6 +80,10 @@ export class ResumeComponent implements OnInit {
     // classes[this.loadingClass] = true;
     classes['ui-loading-3'] = true;
     return classes;
+  }
+
+  changeLang(lang: string) {
+    this.translate.use(lang);
   }
 
 }

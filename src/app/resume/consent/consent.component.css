@@ -1,7 +1,10 @@
 
 .ui-consent {
-  font-size: .4em;
+  font-size: .6em;
   display: none;
+  /*display: flex;*/
+  /*height: 100%;*/
+  /*align-content: flex-end;*/
 }
 
 

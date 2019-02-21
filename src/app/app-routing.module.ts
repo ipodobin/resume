@@ -1,19 +1,15 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {ResumeComponent} from './resume/resume.component';
-import {SkillsComponent} from './resume/skills/skills.component';
-import {ExperienceComponent} from './resume/experience/experience.component';
-import {EducationComponent} from './resume/education/education.component';
-import {ContactComponent} from './resume/contact/contact.component';
-import {AboutComponent} from './resume/about/about.component';
 
 
 const appRoutes: Routes = [
   // {path: '', pathMatch: 'full', redirectTo: '/'},
   // {path: '/:lang?', component: ResumeComponent},
   {path: '', component: ResumeComponent},
+  {path: ':name', component: ResumeComponent},
   // {path: '/edit/:lang?', component: ResumeComponent}
-  {path: ':mode', component: ResumeComponent}
+  // {path: ':mode', component: ResumeComponent}
 ];
 
 @NgModule({

@@ -3,9 +3,8 @@
 }
 
 .ui-about-content {
-  display: grid;
-  grid-template-columns: auto 10em;
   font-size: .8em;
+  text-align: center;
 }
 
 .ui-about-contact {

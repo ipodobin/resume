@@ -3,6 +3,7 @@ import {Education} from './education.model';
 import {Experience} from './experience.model';
 import {Hobby} from './hobby.model';
 import {WebPage} from './webpage.model';
+import {SkillGroup} from './skill.group.model';
 
 
 export class User {
@@ -20,7 +21,9 @@ export class User {
     public hobbies: Hobby[],
     public consent: string,
     public photoUrl: string,
-    public location = ''
+    public location = '',
+    public lang = 'en',
+    public groups: SkillGroup[] = []
   ) {
   }
 }

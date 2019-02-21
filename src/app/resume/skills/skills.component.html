@@ -1,11 +1,16 @@
 <div class="ui-section ui-skills">
   <div class="ui-subtitle">
-    <div class="ui-subtitle-text">Umiejętności</div>
+    <div class="ui-subtitle-text">{{ 'skills' | translate }}</div>
     <div class="ui-subtitle-line"></div>
   </div>
   <div class="ui-skills-content">
-    <div class="ui-skills-chart" *ngFor="let skill of user.skills | skillsenabled">
-      <app-skill-level [skill]="skill" [num]="7"></app-skill-level>
-    </div>
+    <ng-container *ngFor="let group of skillGroups">
+      <label>{{ group.name | translate }}</label>
+      <div class="ui-skills-group">
+        <div class="ui-skills-chart" *ngFor="let skill of group.skills">
+          <app-skill-level [skill]="skill" [num]="7"></app-skill-level>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

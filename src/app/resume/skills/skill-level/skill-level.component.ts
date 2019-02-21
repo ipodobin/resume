@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { Skill } from '../../shared/skill.model';
+import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
+import {Skill} from '../../shared/skill.model';
 
 @Component({
   selector: 'app-skill-level',
@@ -12,7 +12,9 @@ export class SkillLevelComponent implements OnInit {
   @Input() skill: Skill;
   @Input() num: number;
   range: number[] = [];
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     for (let i = 1; i <= this.num; i++) {
@@ -21,7 +23,7 @@ export class SkillLevelComponent implements OnInit {
   }
 
   getTransformValue() {
-    let rotate = this.skill.level * 360 / 100;
+    const rotate = this.skill.level * 360 / 100;
     return 'rotate(' + rotate + 'deg)';
   }
 
@@ -32,7 +34,7 @@ export class SkillLevelComponent implements OnInit {
   }
 
   getSkillLevelPartClass(num: number, max: number = 5) {
-    let fill = 100 * (num - 1) / max <= this.skill.level;
+    const fill = 100 * (num - 1) / max <= this.skill.level;
     return {
       'ui-skill-level-part-fill': fill
     };
