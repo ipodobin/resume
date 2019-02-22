@@ -45,7 +45,7 @@ export class UserService {
       data$.subscribe(results => {
 
         let path;
-        var default_path = false;
+        let default_path = false;
         if (name != null && name !== '') {
           path = '/data/' + name;
         } else {
@@ -107,7 +107,7 @@ export class UserService {
     const _pages = [];
     for (const key in value.webPages) {
       if (value.webPages.hasOwnProperty(key)) {
-        const page = pages[key];
+        const page = value.webPages[key] === true ? pages[key] : value.webPages[key];
         _pages.push(page);
       }
     }
