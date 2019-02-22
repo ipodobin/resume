@@ -25,13 +25,13 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { SkillComponent } from './resume/skills/skill/skill.component';
+import {SkillComponent} from './resume/skills/skill/skill.component';
 
 registerLocaleData(localePL);
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/');
 }
 
 @NgModule({
