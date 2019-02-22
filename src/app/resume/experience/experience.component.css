@@ -1,0 +1,28 @@
+
+.ui-timeline-text .ui-skill-title {
+  font-size: 1em;
+}
+
+.ui-timeline-text li > div:first-child {
+  color: #003333;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.ui-timeline-text ol {
+  list-style: none;
+  counter-reset: li;
+}
+
+.ui-timeline-text li {
+  counter-increment: li;
+}
+
+.ui-timeline-text li::before {
+  content: counter(li) ") ";
+  color: #003333;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
+}

@@ -1,7 +1,7 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin: 0;
 }
 
@@ -94,17 +94,17 @@ body {
 }
 
 .ui-timeline-text p:not(:first-child),
-.ui-timeline-text>div:not(:first-child) {
+.ui-timeline-text > div:not(:first-child) {
   margin: .5em 0 0;
 }
 
-.ui-timeline-text>ul {
+.ui-timeline-text > ol {
   padding: 0 1em;
   margin: .5em 0;
-  list-style-type: decimal;
+  /*list-style-type: decimal;*/
 }
 
-.ui-timeline-text>ul>li:not(:first-child) {
+.ui-timeline-text > ol > li:not(:first-child) {
   margin-top: .5em;
 }
 
