@@ -25,6 +25,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { SkillComponent } from './resume/skills/skill/skill.component';
 
 registerLocaleData(localePL);
 
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HobbyComponent,
     ConsentComponent,
     MonthNamePipe,
-    SkillsEnabledPipe
+    SkillsEnabledPipe,
+    SkillComponent
   ],
   imports: [
     BrowserModule,

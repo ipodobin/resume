@@ -129,9 +129,6 @@
     width: 210mm;
   }
 
-  /*.ui-scrollable {*/
-  /*overflow: hidden;*/
-  /*}*/
   body {
     font-size: 13px;
   }
@@ -153,6 +150,10 @@
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  .ui-name {
+    font-size: 4em;
   }
 
 }

@@ -8,7 +8,8 @@
       <label>{{ group.name | translate }}</label>
       <div class="ui-skills-group">
         <div class="ui-skills-chart" *ngFor="let skill of group.skills">
-          <app-skill-level [skill]="skill" [num]="7"></app-skill-level>
+          <app-skill-level [skill]="skill" [num]="7" *ngIf="false"></app-skill-level>
+          <app-skill [skill]="skill" *ngIf="true"></app-skill>
         </div>
       </div>
     </ng-container>

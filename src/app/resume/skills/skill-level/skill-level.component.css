@@ -5,11 +5,17 @@
   text-align: center;
   /* margin-top: .2em; */
   font-size: .6em;
+  width: 5rem;
+  margin: 0 auto;
 }
 
 .ui-skill-level {
   display: flex;
   justify-content: space-around;
+}
+
+.ui-skills-content > label {
+  padding-top: .8em;
 }
 
 .ui-skill-level-part {
@@ -21,6 +27,11 @@
 
 .ui-skill-level-part-fill {
   background-color: #9B2922;
+}
+
+.ui-skills-chart {
+  width: 5em;
+  margin: .2em;
 }
 
 ._ui-skill-level {

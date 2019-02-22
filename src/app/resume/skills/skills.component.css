@@ -15,18 +15,18 @@
 
 .ui-skills-content > label {
   font-size: .8em;
-  padding-top: .8em;
+  /*padding-top: .8em;*/
 }
 
 .ui-skills-chart {
-  margin: .2em;
-  width: 5em;
+  /*margin: .2em;*/
+  /*width: 5em;*/
   overflow: hidden;
 }
 
 .ui-skills-chart:hover {
   /*perspective: 1000px;*/
-  transform: scale(1.2);
+  /*transform: scale(1.2);*/
 }
 
 

@@ -29,10 +29,11 @@
   font-size: .8em;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.ui-details > div:not(:first-child) {
-  margin-left: .5em;
+.ui-details > div:not(:last-child) {
+  margin-right: .5em;
 }
 
 .ui-details > div > img {
