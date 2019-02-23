@@ -6,7 +6,7 @@
     "ng": "ng",
     "build": "ng build",
     "start": "ng serve",
-    "start_old": "ng serve --host 0.0.0.0",
+    "start_global": "ng serve --host 0.0.0.0",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
