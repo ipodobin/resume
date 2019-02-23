@@ -29,7 +29,7 @@ export class MonthNamePipe implements PipeTransform {
     ];
   }
 
-  transform(value: any, ...args: any[]): any {
+  transform(value: any): any {
     if (this.translate.currentLang === 'pl' || this.translate.currentLang === 'pl-PL') {
       return this.months[new Date(value).getMonth()];
     }

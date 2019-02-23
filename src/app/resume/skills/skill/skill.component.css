@@ -5,7 +5,7 @@
   text-align: center;
   font-size: .6em;
   /*background-color: rgba(155, 50, 33, 0.2);*/
-  background-color: rgba(155, 50, 33, 0.05);
+  background-color: rgba(155, 50, 33, 0.15);
   padding: .1rem .5rem;
   border-radius: .2em;
   align-items: center;
@@ -25,11 +25,7 @@
 
 .ui-skill-title.regular {
   /*background-color: rgba(155, 50, 33, 0.4);*/
-  background-color: rgba(155, 50, 33, 0.2);
-}
-
-.ui-skill-title.knowledgeable {
-
+  background-color: rgba(155, 50, 33, 0.28);
 }
 
 .ui-skills-content {

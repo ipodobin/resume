@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {UserService} from '../shared/user.service';
 import {User} from '../shared/user.model';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -26,7 +25,7 @@ export class HeaderComponent implements OnInit {
   state = 'none';
   showDetails = true;
 
-  constructor(private userService: UserService) {
+  constructor() {
   }
 
   ngOnInit() {

@@ -2,11 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from './shared/user.service';
 import {User} from './shared/user.model';
-import * as jspdf from 'jspdf';
-import html2canvas from 'html2canvas';
-import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
-import {SkillGroup} from './shared/skill.group.model';
-import {Skill} from './shared/skill.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-resume',

@@ -1,8 +1,5 @@
-import {Component, OnInit, ViewEncapsulation, Input, Inject, LOCALE_ID} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Experience} from '../shared/experience.model';
-import {UserService} from '../shared/user.service';
-import {User} from '../shared/user.model';
-import {Observable} from 'rxjs/Observable';
 import {DatePipe} from '@angular/common';
 
 @Component({
@@ -14,42 +11,15 @@ import {DatePipe} from '@angular/common';
 })
 export class ExperienceComponent implements OnInit {
 
-  // user: Observable<User>;
-  // @Input() user: User;
   @Input() experiences: Experience[];
   @Input() title: string;
   months: string[];
 
-  constructor(
-    private userService: UserService,
-    private datePipe: DatePipe,
-    @Inject(LOCALE_ID) private locale: string
-  ) {
-    this.months = [
-      'styczeń',
-      'luty',
-      'marzec',
-      'kwiecień',
-      'maj',
-      'czerwiec',
-      'lipiec',
-      'sierpień',
-      'wrzesień',
-      'październik',
-      'listopad',
-      'grudzień'
-    ];
+  constructor() {
   }
 
   ngOnInit() {
-    // this.user = this.userService.getUserObservable();
-  }
-
-  getMonth(date: Date) {
-    if (this.locale === 'pl-PL') {
-      return this.months[new Date(date).getMonth()];
-    }
-    return this.datePipe.transform(date, 'MMMM');
+    this.experiences = this.experiences.sort(Experience.reverse);
   }
 
 }

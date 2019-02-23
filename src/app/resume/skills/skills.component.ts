@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {UserService} from '../shared/user.service';
 import {User} from '../shared/user.model';
 import {SkillGroup} from '../shared/skill.group.model';
 

@@ -1,9 +1,5 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { Education } from '../shared/education.model';
-import { UserService } from '../shared/user.service';
-import { User } from '../shared/user.model';
-import { Observable } from 'rxjs/Observable';
-import {Experience} from '../shared/experience.model';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Education} from '../shared/education.model';
 
 @Component({
   selector: 'app-education',
@@ -13,14 +9,13 @@ import {Experience} from '../shared/experience.model';
 })
 export class EducationComponent implements OnInit {
 
-  // user: Observable<User>;
-  // @Input() user: User;
   @Input() educations: Education[];
 
-  constructor(private userService: UserService) { }
+  constructor() {
+  }
 
   ngOnInit() {
-    // this.user = this.userService.getUserObservable();
+    this.educations = this.educations.sort(Education.reverseBy('to'));
   }
 
 }
