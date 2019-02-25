@@ -3,16 +3,12 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-}
-
-.ui-hobby-chart {
-  margin: 5px;
-  width: 100px;
-  overflow: hidden;
+  margin-top: -2.3em;
+  margin-left: .7em;
 }
 
 .ui-hobby-item {
-  width: 3em;
+  width: 2em;
   overflow: hidden;
   margin-right: .5em;
 }

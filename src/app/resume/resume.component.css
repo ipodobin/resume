@@ -122,7 +122,20 @@
 
 }
 
+@media all {
+
+  .page-break {
+    display: none;
+  }
+
+}
+
 @media print {
+
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
 
   .ui-container {
     height: 297mm;
@@ -130,7 +143,7 @@
   }
 
   body {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   app-consent {
@@ -155,6 +168,25 @@
   .ui-name {
     font-size: 4em;
   }
+
+  .ui-timeline-circle {
+    left: -.64em;
+  }
+
+  .ui-subtitle-line {
+    margin-left: -1px;
+  }
+
+  .ui-timeline-line:not(:first-of-type) > div {
+    margin-top: -1px;
+  }
+
+  /*div {*/
+    /*float: none !important;*/
+    /*position: static !important;*/
+    /*display: inline;*/
+    /*box-sizing: content-box !important;*/
+  /*}*/
 
 }
 

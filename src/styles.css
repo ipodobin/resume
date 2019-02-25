@@ -198,19 +198,3 @@ a:link:active, a:visited:active, a:hover {
   }
 
 }
-
-@media print {
-
-  .ui-timeline-circle {
-    left: -.64em;
-  }
-
-  .ui-subtitle-line {
-    margin-left: -1px;
-  }
-
-  .ui-timeline-line:not(:first-of-type) > div {
-    margin-top: -1px;
-  }
-
-}
