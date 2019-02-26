@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    branches:
+      only:
+        - master
+        - /rc-.*/
     working_directory: ~/my-project
     docker:
       - image: circleci/node:8-browsers
