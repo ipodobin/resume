@@ -1,15 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ResumeComponent} from './resume/resume.component';
+import {EditComponent} from './resume/edit/edit.component';
+import {LoginComponent} from './resume/login/login/login.component';
+import {AuthGuard} from './resume/service/auth-guard.service';
 
 
 const appRoutes: Routes = [
-  // {path: '', pathMatch: 'full', redirectTo: '/'},
-  // {path: '/:lang?', component: ResumeComponent},
-  // {path: '', component: ResumeComponent},
-  {path: ':name', component: ResumeComponent},
-  // {path: '/edit/:lang?', component: ResumeComponent}
-  // {path: ':mode', component: ResumeComponent}
+  {path: 'edit', component: EditComponent, canActivate: [AuthGuard]},
+  {path: 'data/:name', component: ResumeComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  // {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+  // {path: 'user', component: UserComponent, resolve: {data: UserResolver}}
 ];
 
 @NgModule({

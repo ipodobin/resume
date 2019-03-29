@@ -1,0 +1,32 @@
+<p>
+  edit works!
+</p>
+<button (click)="logout()">Logout</button>
+<form>
+  <div class="form-group">
+    <label>Name: </label>
+    <input class="form-control"
+           [(ngModel)]="name"
+           name="name"
+           placeholder="Name"
+           required>
+    <label>Title: </label>
+    <input class="form-control"
+           [(ngModel)]="title"
+           name="title"
+           placeholder="Title"
+           required>
+  </div>
+  <button (click)="add()">Add</button>
+</form>
+<br/>
+<ul>
+  <li *ngFor="let item of bookArray">
+    <pre>{{ item | json }}</pre>
+  </li>
+</ul>
+<ul *ngIf="false">
+  <li *ngFor="let item of items | async">
+    <pre>{{ item | json }}</pre>
+  </li>
+</ul>
