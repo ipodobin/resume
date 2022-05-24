@@ -144,6 +144,7 @@
 
   body {
     font-size: 13.5px;
+    -webkit-print-color-adjust: exact;
   }
 
   app-consent {
