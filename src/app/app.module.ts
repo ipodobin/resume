@@ -26,6 +26,12 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SkillComponent} from './resume/skills/skill/skill.component';
+import {EditComponent} from './resume/edit/edit.component';
+import {LoginComponent} from './resume/login/login/login.component';
+import {RegisterComponent} from './resume/login/register/register.component';
+import {UserComponent} from './resume/login/user/user.component';
+import {FormsModule} from '@angular/forms';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 registerLocaleData(localePL);
 
@@ -49,7 +55,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConsentComponent,
     MonthNamePipe,
     SkillsEnabledPipe,
-    SkillComponent
+    SkillComponent,
+    EditComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -72,13 +82,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    FormsModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US'},
-    // {provide: LOCALE_ID, useValue: 'pl-PL'},
     DatePipe,
     AngularFireDatabase,
+    AngularFirestore,
     TranslateService
   ],
   bootstrap: [AppComponent]

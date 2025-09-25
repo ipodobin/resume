@@ -7,8 +7,15 @@
        (load)="animateImage()"
        alt="">
   <div>
-    <div class="ui-name">{{ user.name }}</div>
-    <div class="ui-title">{{ user.title }}</div>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div class="ui-name">{{ user.name }}</div>
+        <div class="ui-title">{{ user.title }}</div>
+      </div>
+      <div>
+        <button class="ui-button" (click)="downloadPdf()">Download PDF</button>
+      </div>
+    </div>
     <div class="ui-details">
       <div>
         <img [src]="'assets/images/location.svg'" alt="">
